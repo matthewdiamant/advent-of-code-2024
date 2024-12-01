@@ -1,0 +1,26 @@
+#!/bin/sh
+
+DAY=day-$1
+
+# copy template
+
+cp -r ./template/. ./$DAY
+cd ./$DAY
+mv ./haskell.hs ./$DAY.hs
+mv ./rust.rs ./$DAY.rs
+mv ./python.py ./$DAY.py
+
+# make Cargo.toml
+
+echo "[package]
+name = '$DAY'
+version = '1.0.0'
+
+[[bin]]
+name = '$DAY'
+path = './$DAY.rs'" >> Cargo.toml
+
+# get input
+SESSION=53616c7465645f5f684228101b5df173b9a01855811e7f97fc8d653fd16ddd42b0507ce45cc438965704854af163357d991cc37483c078e2fccccaf7996711f7
+curl "https://adventofcode.com/2023/day/$1/input" \
+  -H "cookie: session=$SESSION" >> input.txt
