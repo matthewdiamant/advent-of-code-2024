@@ -21,6 +21,6 @@ name = '$DAY'
 path = './$DAY.rs'" >> Cargo.toml
 
 # get input
-SESSION=53616c7465645f5f684228101b5df173b9a01855811e7f97fc8d653fd16ddd42b0507ce45cc438965704854af163357d991cc37483c078e2fccccaf7996711f7
-curl "https://adventofcode.com/2023/day/$1/input" \
+SESSION=53616c7465645f5f78d4b91f0e5de57475951d054b7db07a50875d36e6233abadc5049ec95c2acc9cc507257d6e992dcaaec447f3218363404f73421b522f0e5
+curl "https://adventofcode.com/2024/day/$1/input" \
   -H "cookie: session=$SESSION" >> input.txt
