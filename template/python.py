@@ -6,11 +6,8 @@ def solve_1(input):
 def solve_2(input):
     return input
 
-with open("./input.txt") as f:
-    input = f.read()
-
-with open("./example.txt") as f:
-    example = f.read()
+with open("./example.txt") as f: example = f.read()
+with open("./input.txt")   as f: input   = f.read()
 
 class Test(unittest.TestCase):
     def test_solve_example_1(self):
