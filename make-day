@@ -4,11 +4,11 @@ DAY=day-$1
 
 # copy template
 
-cp -r ./template/. ./$DAY
-cd ./$DAY
-mv ./haskell.hs ./$DAY.hs
-mv ./rust.rs ./$DAY.rs
-mv ./python.py ./$DAY.py
+cp -r ./template/. "./$DAY"
+cd "./$DAY" || exit
+mv ./haskell.hs "./$DAY.hs"
+mv ./rust.rs "./$DAY.rs"
+mv ./python.py "./$DAY.py"
 
 # make Cargo.toml
 
@@ -21,6 +21,5 @@ name = '$DAY'
 path = './$DAY.rs'" >> Cargo.toml
 
 # get input
-SESSION=53616c7465645f5f78d4b91f0e5de57475951d054b7db07a50875d36e6233abadc5049ec95c2acc9cc507257d6e992dcaaec447f3218363404f73421b522f0e5
-curl "https://adventofcode.com/2024/day/$1/input" \
-  -H "cookie: session=$SESSION" >> input.txt
+read -r SESSION < .session
+curl "https://adventofcode.com/2024/day/$1/input" -H "cookie: session=$SESSION" >> input.txt
