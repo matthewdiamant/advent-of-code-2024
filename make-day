@@ -1,6 +1,7 @@
 #!/bin/sh
 
 DAY=day-$1
+SESSION=$(cat .session)
 
 # copy template
 
@@ -21,5 +22,4 @@ name = '$DAY'
 path = './$DAY.rs'" >> Cargo.toml
 
 # get input
-read -r SESSION < .session
-curl "https://adventofcode.com/2024/day/$1/input" -H "cookie: session=$SESSION" >> input.txt
+curl "https://adventofcode.com/2024/day/$1/input" -H "cookie: session=$SESSION" > input.txt
